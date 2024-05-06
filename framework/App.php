@@ -21,6 +21,7 @@ class App
             $action = $route['action'];
 
             $response = $controller->{$action}();
+            http_response_code($response->getStatusCode());
             echo $response->send();
         } else {
             http_response_code(404);

@@ -12,6 +12,16 @@ class Response
     {
     }
 
+    public function getStatusCode(): int
+    {
+        return $this->status;
+    }
+
+    public function getHeaders(): array
+    {
+        return $this->headers;
+    }
+
     public function send(): false|array|string
     {
         return is_array($this->data) ? json_encode($this->data) : $this->data;
