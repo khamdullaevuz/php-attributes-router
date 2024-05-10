@@ -7,7 +7,6 @@ use framework\Route;
 
 try {
     $routes = Route::getRoutes();
-
     print_r($routes);
 } catch (ReflectionException $e) {
 }

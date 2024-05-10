@@ -36,11 +36,11 @@ class Route
     {
         if(in_array($name, ['get', 'post', 'put', 'delete']) && count($arguments) === 2)
         {
-            self::addRoute(strtoupper($name), $arguments[0], $arguments[1]);
+            self::addRoute($arguments[0], strtoupper($name), $arguments[1]);
         }
     }
 
-    protected static function addRoute(string $method, string $path, array $action): void
+    protected static function addRoute(string $path, string $method, array $action): void
     {
         self::$routes[$path] = [
             'method' => $method,
@@ -66,11 +66,7 @@ class Route
                 foreach ($attributes as $attribute) {
                     $route = $attribute->newInstance();
 
-                    self::$routes[$route->getPath()] = [
-                        'method' => $route->getMethod(),
-                        'action' => $method->getName(),
-                        'controller' => $class,
-                    ];
+                    self::addRoute($route->getPath(), $route->getMethod(), [$class, $method->getName()]);
                 }
             }
         }
