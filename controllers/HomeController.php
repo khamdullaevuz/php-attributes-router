@@ -8,6 +8,7 @@ use framework\Route;
 class HomeController
 {
     #[Route('/')]
+    #[Route('/home')]
     public function __invoke(): Response
     {
         return new Response('Hello, world!');

@@ -1,0 +1,14 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/loader.php';
+
+use framework\Route;
+
+try {
+    $routes = Route::getRoutes();
+
+    print_r($routes);
+} catch (ReflectionException $e) {
+}
+
