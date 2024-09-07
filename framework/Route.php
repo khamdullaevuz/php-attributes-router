@@ -44,8 +44,8 @@ class Route
     {
         self::$routes[$path] = [
             'method' => $method,
-            'action' => $action[0],
-            'controller' => $action[1],
+            'action' => $action[1],
+            'controller' => $action[0],
         ];
     }
 
